@@ -10,8 +10,9 @@ A micro image providing HAProxy based on [Alpine Linux](https://hub.docker.com/_
 
 -	`1.6.11`, `1.6`
 -	`1.6.11-lua`, `1.6-lua`
--	`1.7.3`, `1.7`, `latest`
+-	`1.7.3`, `1.7`
 -	`1.7.3-lua`, `1.7-lua`
+-	`1.8.1`, `1.8`, `latest`
 
 ## What is HAProxy?
 
@@ -32,7 +33,7 @@ Note: Many configuration examples propose to put `daemon` into the `global` sect
 ## Create a `Dockerfile`
 
 ```dockerfile
-FROM meg4r0m/alpine-haproxy:1.7
+FROM meg4r0m/alpine-haproxy:1.8
 COPY haproxy.cfg /etc/haproxy
 ```
 
@@ -46,6 +47,6 @@ $ docker run -d repo/haproxy
 ## Directly via bind mount
 
 ```console
-$ docker run -d -v /path/to/haproxy.cfg:/etc/haproxy/haproxy.cfg:ro meg4r0m/alpine-haproxy:1.7
+$ docker run -d -v /path/to/haproxy.cfg:/etc/haproxy/haproxy.cfg:ro meg4r0m/alpine-haproxy:1.8
 ```
 
