@@ -4,7 +4,7 @@
 
 A micro image providing HAProxy based on [Alpine Linux](https://hub.docker.com/_/alpine/).
 
-[Github source](https://github.com/meg4r0m/docker-alpine-haproxy)
+[Github source](https://github.com/psykoterro/docker-alpine-haproxy)
 
 ## Supported tags
 
