@@ -1,4 +1,4 @@
-FROM alpine:3.5
+FROM alpine:3.7
 
 ARG HAPROXY_MAJOR
 ARG HAPROXY_VERSION
@@ -7,7 +7,8 @@ ARG WITH_LUA
 ARG BUILD_DATE
 
 # Build-time metadata as defined at http://label-schema.org
-LABEL org.label-schema.name="HAProxy" \
+LABEL maintainer="Florian Durano <psykoterro@gmail.com>" \
+    org.label-schema.name="HAProxy" \
 	org.label-schema.description="A TCP/HTTP reverse proxy for high availability environments" \
 	org.label-schema.url="http://www.haproxy.org" \
 	org.label-schema.version=$HAPROXY_VERSION \
@@ -23,12 +24,12 @@ RUN addgroup haproxy && adduser -S -g haproxy haproxy
 # Refer to http://cbonte.github.io/haproxy-dconv/configuration-1.5.html#chroot.
 RUN mkdir /var/lib/haproxy
 
-COPY build.sh /
+COPY scripts/build.sh /
 RUN chmod +x /build.sh
 RUN /build.sh
 
-ADD haproxy.cfg /etc/haproxy/haproxy.cfg
-ADD bootstrap.sh /root/bootstrap.sh
+ADD conf/haproxy.cfg /etc/haproxy/haproxy.cfg
+ADD scripts/bootstrap.sh /root/bootstrap.sh
 RUN chmod +x /root/bootstrap.sh
 
 #CMD [ "/usr/sbin/haproxy-systemd-wrapper", "-p", "/run/haproxy.pid", "-f", "/etc/haproxy/haproxy.cfg" ]
