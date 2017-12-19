@@ -26,7 +26,7 @@ RUN mkdir /var/lib/haproxy
 
 COPY scripts/build.sh /
 RUN chmod +x /build.sh
-RUN sh /build.sh
+RUN /build.sh
 
 ADD conf/haproxy.cfg /etc/haproxy/haproxy.cfg
 ADD scripts/bootstrap.sh /root/bootstrap.sh
