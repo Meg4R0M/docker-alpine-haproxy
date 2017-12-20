@@ -8,8 +8,12 @@ if [ -z ${HAPROXY_MAJOR} ];
 	then HAPROXY_MAJOR="1.8";
 fi
 
-if [ -z ];
+if [ -z ${HAPROXY_VERSION} ];
 	then HAPROXY_VERSION="1.8.1";
+fi
+
+if [ -z ${HAPROXY_MD5} ];
+	then HAPROXY_MD5="e42892d4b6ee33200fccaa1d81837e49";
 fi
 
 apk upgrade --no-cache
