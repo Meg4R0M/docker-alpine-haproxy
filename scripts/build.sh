@@ -4,6 +4,11 @@ set -ex
 BUILD_DEPS="make gcc libc-dev linux-headers python pcre-dev openssl-dev zlib-dev"
 RUN_DEPS="pcre libssl1.0 libcrypto1.0 zlib rsyslog openrc"
 
+if [ -z ${HAPROXY_MAJOR} ];
+	set HAPROXY_MAJOR=1.8;
+	set HAPROXY_VERSION=1.8.1;
+fi
+
 apk upgrade --no-cache
 
 if [ -z "$WITH_LUA" ]; then
