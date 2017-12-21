@@ -32,7 +32,6 @@ ADD conf/haproxy.cfg /etc/haproxy/haproxy.cfg
 ADD scripts/bootstrap.sh /root/bootstrap.sh
 RUN chmod +x /root/bootstrap.sh
 
-#CMD [ "/usr/sbin/haproxy-systemd-wrapper", "-p", "/run/haproxy.pid", "-f", "/etc/haproxy/haproxy.cfg" ]
 CMD ["/root/bootstrap.sh"]
 
 EXPOSE 80 443 8000
